@@ -1,0 +1,60 @@
+*{margin: 0px;
+padding: 0px;
+box-sizing: border-box;
+}
+
+
+.carosoul_container{
+  width: 29%;
+      margin: auto;
+      overflow: hidden;
+      margin-top: 57px;
+      margin-bottom: 50px;
+}
+
+
+.carosoul_slide{
+display: flex;
+width:100%;
+height:350px;
+position: relative;
+
+}
+
+#previousbtn{
+  background: #997537;
+      color: white;
+      padding: 10px;
+      width: 75px;
+      position: absolute;
+      top: 30%;
+      left: 33%;
+          transition: .5s;
+          box-shadow: none;
+}
+
+#nxtbtn{
+  background: #997537;
+    color: white;
+    padding: 10px;
+    width: 75px;
+    position: absolute;
+    top: 30%;
+    left: 62%;
+    transition: .5s;
+    box-shadow: none;
+}
+
+#nxtbtn:hover{
+  background: black;
+
+  
+}
+
+#previousbtn:hover{
+  background: black;
+
+
+    text-align: center;
+
+}
