@@ -1,54 +1,55 @@
+var carosoulSlider=document.querySelector(".slider_content");
+var carosoulImg=document.querySelectorAll(".slider_content img");
 
-var carosoulSlide=document.querySelector(".carosoul_slide");
-var carosoulImg=document.querySelectorAll(".carosoul_slide img");
+var next=document.querySelector("#nxtbtn");
+var previous=document.querySelector("#prbtn");
 
-//button
-var prevbtn=document.querySelector("#previousbtn");
-var nxtbtn=document.querySelector("#nxtbtn");
+var counter=1;
 
-//counter
-var counter= 1;
 var size=carosoulImg[0].clientWidth;
 
-carosoulSlide.style.transform="translateX(' + (-size*counter) +'px)";
+carosoulSlider.style.transform="translateX(" + (-size*counter) +"px)";
 
-//button listener
+next.addEventListener("click",() =>{
 
-nxtbtn.addEventListener("click",() => {
-  if(counter>=carosoulImg.length-1) return;
-  carosoulSlide.style.transition='transform 0.4s ease-in-out';
-  counter++;
-  carosoulSlide.style.transform='translateX(' + (-size*counter) + 'px)';
+if(counter>=carosoulImg.length-1) return;
+
+carosoulSlider.style.transition="transform 0.4s ease-in-out";
+counter++;
+carosoulSlider.style.transform="translateX("+ (-size*counter) +"px)";
+
+
 });
 
+previous.addEventListener("click",() =>{
+if(counter<=0) return;
 
-
-
-//prev
-
-prevbtn.addEventListener("click",() => {
-  if(counter<=0) return;
-  carosoulSlide.style.transition='transform 0.4s ease-in-out';
-  counter--;
-  carosoulSlide.style.transform='translateX(' + (-size*counter) + 'px)';
-});
-
-
-
-carosoulSlide.addEventListener('transitionend',() =>{
-
-if(carosoulImg[counter].id==='last_clone'){
-  carosoulSlide.style.transition="none";
-  counter=carosoulImg.length - 5;
-  carosoulSlide.style.transform='translateX(' + (-size * counter) + 'px)';
-
-}
-
-if(carosoulImg[counter].id==='first_clone'){
-  carosoulSlide.style.transition="none";
-  counter=carosoulImg.length - 2;
-  carosoulSlide.style.transform='translateX(' + (-size * counter) + 'px)';
-
-}
+carosoulSlider.style.transition=".4s ease-in-out";
+carosoulSlider.style.transform="translateX("+ (-size*counter) +"px)";
+counter--;
 
 });
+
+carosoulSlider.addEventListener("transitionend",() =>{
+
+  if(carosoulImg[counter].id=="last_clone"){
+    carosoulSlider.style.transition="none";
+    counter=carosoulImg.length-5;
+    carosoulSlider.style.transform="translateX("+ (-size*counter) +"px)";
+  }
+
+
+  if(carosoulImg[counter].id=="first_clone"){
+    carosoulSlider.style.transition="none";
+    counter=carosoulImg.length-1;
+    carosoulSlider.style.transform="translateX("+ (-size*counter) +"px)";
+  }
+
+
+
+
+
+
+
+
+})
